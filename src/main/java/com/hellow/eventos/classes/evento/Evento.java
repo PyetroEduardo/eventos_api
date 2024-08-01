@@ -1,5 +1,7 @@
 package com.hellow.eventos.classes.evento;
 
+import com.hellow.eventos.classes.endereco.Endereco;
+import com.hellow.eventos.classes.tipo.Tipo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +16,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class evento {
+public class Evento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -23,9 +25,11 @@ public class evento {
     private Date data;
     private String descricao;
     private int lotacao;
-    @OneToMany
-    private int endereco_id;
-    @OneToMany
-    private int tipo_id;
+    @ManyToOne
+    @JoinColumn(name="id_endereco")
+    private Endereco endereco_id;
+    @ManyToOne
+    @JoinColumn(name="id_tipo")
+    private Tipo tipo_id;
 
 }
