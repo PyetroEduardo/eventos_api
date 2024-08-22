@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="tipo")
+@RequestMapping("tipo")
 public class TipoController {
     @Autowired
     private TipoRepository tipoRepository;

@@ -1,4 +1,4 @@
-package com.hellow.eventos.classes.evento;
+package com.hellow.eventos.classes.fornecedor;
 
 import com.hellow.eventos.classes.endereco.Endereco;
 import com.hellow.eventos.classes.tipo.Tipo;
@@ -10,27 +10,34 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@Table(name="evento")
-@Entity(name="evento")
+@Table(name="Fornecedor")
+@Entity(name="Fornecedor")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Evento {
-
+public class Fornecedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
+    @Column(name="id")
+    private Integer id;
     private String nome;
-    private Date data;
-    private String descricao;
-    private int lotacao;
-    @ManyToOne
-    @JoinColumn(name="id_endereco")
-    private Endereco endereco_id;
+    private String cnpj;
+    private Integer ativo;
+    private String endereco_id;
+    private String tipo_id;
+
+
     @ManyToOne
     @JoinColumn(name="id_tipo")
-    private Tipo tipo_id;
+    private Tipo tipo;
+
+
+
+
+
+
+
+
 
 }
